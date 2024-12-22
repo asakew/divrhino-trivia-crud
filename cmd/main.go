@@ -22,6 +22,8 @@ func main() {
 		ViewsLayout: "layouts/main",
 	})
 
+	app.Static("/", "./web/public") // Static files
+
 	// Middleware
 	app.Use(logger.New())
 	app.Use(recover.New())
@@ -29,9 +31,7 @@ func main() {
 
 	routes.SetupRoutes(app)
 
-	app.Static("/", "./public")
-
-	app.Use(handlers.NotFound)
+	app.Use(handlers.NotFound) // 404 page
 
 	err := app.Listen(":3000")
 	if err != nil {
