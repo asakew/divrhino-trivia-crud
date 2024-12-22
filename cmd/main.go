@@ -13,10 +13,12 @@ import (
 
 func main() {
 
-	database.ConnectDb()
+	database.ConnectDB() // Connect to DB
 
+	// HTML engine
 	engine := html.New("./web/templates", ".html")
 
+	// Create new Fiber instance
 	app := fiber.New(fiber.Config{
 		Views:       engine,
 		ViewsLayout: "layouts/main",
@@ -29,10 +31,11 @@ func main() {
 	app.Use(recover.New())
 	app.Use(cors.New())
 
-	routes.SetupRoutes(app)
-
+	// Routes
+	routes.FactRoutes(app)
 	app.Use(handlers.NotFound) // 404 page
 
+	// Start server
 	err := app.Listen(":3000")
 	if err != nil {
 		return

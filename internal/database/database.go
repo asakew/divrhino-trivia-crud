@@ -19,7 +19,7 @@ type Distance struct {
 
 var DB Distance
 
-func ConnectDb() {
+func ConnectDB() {
 
 	err := godotenv.Load()
 	if err != nil {

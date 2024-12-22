@@ -5,7 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupRoutes(app *fiber.App) {
+func FactRoutes(app *fiber.App) {
 	app.Get("/", handlers.ListFacts)
 
 	app.Get("/fact", handlers.NewFactView)
