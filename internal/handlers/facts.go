@@ -99,5 +99,5 @@ func DeleteFact(c *fiber.Ctx) error {
 }
 
 func NotFound(c *fiber.Ctx) error {
-	return c.Status(fiber.StatusNotFound).SendFile("./public/404.html")
+	return c.Status(fiber.StatusNotFound).SendFile("./web/templates/404.html")
 }
