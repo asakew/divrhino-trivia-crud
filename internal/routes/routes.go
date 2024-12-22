@@ -1,11 +1,11 @@
-package main
+package routes
 
 import (
-	"github.com/divrhino/divrhino-trivia/handlers"
+	"divrhino-trivia-crud/internal/handlers"
 	"github.com/gofiber/fiber/v2"
 )
 
-func setupRoutes(app *fiber.App) {
+func SetupRoutes(app *fiber.App) {
 	app.Get("/", handlers.ListFacts)
 
 	app.Get("/fact", handlers.NewFactView)

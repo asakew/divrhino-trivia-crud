@@ -5,17 +5,17 @@ import (
 	"log"
 	"os"
 
-	"github.com/divrhino/divrhino-trivia/models"
+	"divrhino-trivia-crud/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
 
-type Dbinstance struct {
+type Distance struct {
 	Db *gorm.DB
 }
 
-var DB Dbinstance
+var DB Distance
 
 func ConnectDb() {
 	dsn := fmt.Sprintf(
@@ -38,9 +38,12 @@ func ConnectDb() {
 	db.Logger = logger.Default.LogMode(logger.Info)
 
 	log.Println("running migrations")
-	db.AutoMigrate(&models.Fact{})
+	err = db.AutoMigrate(&models.Fact{})
+	if err != nil {
+		return
+	}
 
-	DB = Dbinstance{
+	DB = Distance{
 		Db: db,
 	}
 }

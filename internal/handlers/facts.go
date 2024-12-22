@@ -1,13 +1,14 @@
 package handlers
 
 import (
-	"github.com/divrhino/divrhino-trivia/database"
-	"github.com/divrhino/divrhino-trivia/models"
+	"divrhino-trivia-crud/internal/database"
+	"divrhino-trivia-crud/internal/models"
+
 	"github.com/gofiber/fiber/v2"
 )
 
 func ListFacts(c *fiber.Ctx) error {
-	facts := []models.Fact{}
+	var facts []models.Fact
 	database.DB.Db.Find(&facts)
 
 	return c.Render("index", fiber.Map{

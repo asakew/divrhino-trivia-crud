@@ -1,11 +1,16 @@
-module github.com/divrhino/divrhino-trivia
+module divrhino-trivia-crud
 
-go 1.19
+go 1.23
+
+require (
+	github.com/gofiber/fiber/v2 v2.38.1
+	github.com/gofiber/template v1.7.1
+	gorm.io/driver/postgres v1.4.4
+	gorm.io/gorm v1.24.0
+)
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/gofiber/fiber/v2 v2.38.1 // indirect
-	github.com/gofiber/template v1.7.1 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.13.0 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
@@ -23,6 +28,4 @@ require (
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
 	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gorm.io/driver/postgres v1.4.4 // indirect
-	gorm.io/gorm v1.24.0 // indirect
 )
