@@ -12,6 +12,7 @@ import (
 )
 
 func main() {
+
 	database.ConnectDb()
 
 	engine := html.New("./web/templates", ".html")
